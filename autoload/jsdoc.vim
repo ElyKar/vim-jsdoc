@@ -240,12 +240,10 @@ function! jsdoc#insert() abort
   endif
 
   let l:lines = []
-  let l:desc = g:jsdoc_input_description == 1 ? input('Description: ') : ''
+  let l:desc = g:jsdoc_input_description == 1 ? input('Description: ') : 'Description: '
   call add(l:lines, l:space . '/**')
   call add(l:lines, l:space . ' * ' . l:desc)
-  if !l:is_class
-    call add(l:lines, l:space . ' *')
-  endif
+  call add(l:lines, l:space . ' *')
 
   let l:funcName = ''
   if l:is_function || l:is_class
